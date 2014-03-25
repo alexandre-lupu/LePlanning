@@ -10,35 +10,35 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class UserController extends Controller
 {
-    /**
-     * @Route("/add")
-     * @Template()
-     */
+  /**
+   * @Route("/add")
+   * @Template()
+   */
      
-    public function addAction()
-    {
-		$request = $this->getRequest();
-		$nom=$request->request->get('nom');
-		$mdp=md5($request->request->get('mdp'));
+  public function addAction()
+  {
+    $request = $this->getRequest();
+    $nom=$request->request->get('nom');
+    $mdp=$request->request->get('mdp');
 		
-		$user=new User();
-		$user->setName($nom);
-		$user->setPassword($mdp);
+    $user=new User();
+    $user->setName($nom);
+    $user->setPassword($mdp);
 		
-		$em = $this->getDoctrine()->getManager();
+    $em = $this->getDoctrine()->getManager();
 		
-		$em->persist($user);
-		$em->flush();
+    $em->persist($user);
+    $em->flush();
 		
-		return $this->render('IutPlanningBundle:User:add.html.twig',array('name'=>$nom));
-    }
+    return $this->render('IutPlanningBundle:User:add.html.twig',array('name'=>$nom));
+  }
 	
-    /**
-     * @Route("/show/id")
-     * @Template()
-     */
-    public function idAction($id)
-    {
-    }
+  /**
+   * @Route("/show/id")
+   * @Template()
+   */
+  public function idAction($id)
+  {
+  }
 
 }

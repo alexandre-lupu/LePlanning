@@ -19,7 +19,7 @@ class UserController extends Controller
     {
 		$request = $this->getRequest();
 		$nom=$request->request->get('nom');
-		$mdp=$request->request->get('mdp');
+		$mdp=md5($request->request->get('mdp'));
 		
 		$user=new User();
 		$user->setName($nom);

@@ -19,7 +19,9 @@ class UserController extends Controller
   {
     $request = $this->getRequest();
     $nom=$request->request->get('nom');
+
     $mdp=md5($request->request->get('mdp'));
+
 		
     $user=new User();
     $user->setName($nom);
@@ -60,7 +62,6 @@ class UserController extends Controller
     else{
       return $this->render('IutPlanningBundle:Default:identification.html.twig',array('error'=>$nom));
     }
-
   } 
 
 }

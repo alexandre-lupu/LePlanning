@@ -16,23 +16,22 @@ class DefaultController extends Controller
   {
     return array('name' => $name);
   }
-  
-    /**
-     * @Route("/formuser")
-     * @Template()
-     */
-  
+
+  /**
+   * @Route("/formuser")
+   * @Template()
+   */
+    
   public function formuserAction(){
     return $this->render('IutPlanningBundle:Default:formuser.html.twig');	
   }
-  
-  
+
   /**
-   *@Route("/identification")
-   *
+   * @Route("/formactivity")
+   * @Template()
    */
-    public function IdentificationFormAction(){
-      return $this->render('IutPlanningBundle:Default:identification.html.twig');
-    }
+  public function formactivityAction(){
+    return $this->render('IutPlanningBundle:Default:formactivity.html.twig');
+  }
     
 }

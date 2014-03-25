@@ -3,5 +3,12 @@
 {% block title %}IutPlanningBundle:User:add{% endblock %}
 
 {% block body %}
-<h1>Welcome to the User:add page</h1>
+<h1>Ajout d'utilisateur</h1>
+
+<form id="" method="post">
+  <p>Nom : <input type="text" id="nom" required/></p>
+  <p>Mot de passe : <input type="password" id="mdp" required/></p>
+  <input type="submit" id="ajouter" value="Ajouter">
+</form>
+
 {% endblock %}

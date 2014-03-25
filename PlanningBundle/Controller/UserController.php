@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
+use 
+
 class UserController extends Controller
 {
     /**
@@ -14,6 +16,10 @@ class UserController extends Controller
      */
     public function addAction()
     {
+      $user= new User();
+      $user->setName($_POST['nom']);
+      $user->setPassword($_POST['mdp'])
+      return array();
     }
 
     /**
@@ -22,6 +28,7 @@ class UserController extends Controller
      */
     public function idAction()
     {
+		
     }
 
 }

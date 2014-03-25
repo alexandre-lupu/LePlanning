@@ -16,4 +16,13 @@ class DefaultController extends Controller
     {
         return array('name' => $name);
     }
+
+	/**
+	* @Route("/formuser")
+	* @Template()
+	*/
+    
+    public function formuserAction(){
+		      return $this->render('IutPlanningBundle:Default:formuser.html.twig');	
+		}
 }

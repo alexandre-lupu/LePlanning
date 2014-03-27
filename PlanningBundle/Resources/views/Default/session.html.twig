@@ -1,1 +1,13 @@
-<h1>Connecté</h1>
+<h1>{{nom}} est connect&eacute</h1>
+
+  {% if activities %}
+<ul>
+  {% for a in activities %}
+    <li>{{ a.nameActivity }} : {{a.date.format('Y-m-d H:m')}}</li>
+  {% endfor %}
+</ul>
+
+{% else %}
+<p>Pas d'activit&eacute de pr&eacutevues</p>
+
+{% endif %}

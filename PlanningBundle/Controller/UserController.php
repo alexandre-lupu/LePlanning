@@ -64,7 +64,9 @@ class UserController extends Controller
       return $this->render('IutPlanningBundle:Default:identification.html.twig');
     }
     else{
-	return $this->render('IutPlanningBundle:Default:session.html.twig');
+	$activite=$em->getRepository('IutPlanningBundle:Participate')->findBy(array('nameUser'=>$nom));
+	return $this->render('IutPlanningBundle:Default:session.html.twig', array('nom' => $nom, 
+	       								          'activities' => $activite));
     }
   } 
 

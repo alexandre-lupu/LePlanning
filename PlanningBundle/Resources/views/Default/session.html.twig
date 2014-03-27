@@ -8,6 +8,24 @@
 </ul>
 
 {% else %}
-<p>Pas d'activit&eacute de pr&eacutevues</p>
+<p>Pas d'activit&eacutes de pr&eacutevues</p>
 
 {% endif %}
+
+
+
+<form method="get" action="">
+  <fieldset>
+    <legend>Ajouter une activit&eacute</legend>
+    <p>
+      <select>
+	{% for a in liste %}
+	<option value={{a.name}}>{{a.name}}</option>
+	{% endfor %}
+      </select>
+      </p>
+      <p>Date :<input type="text" id="date" name="date" required/></p>
+      <p>Heure :<input type="text" id="heure" name="heure" required/></p>
+      <p><input type="submit" value="Ok"/></p>
+  </fieldset>
+</form>

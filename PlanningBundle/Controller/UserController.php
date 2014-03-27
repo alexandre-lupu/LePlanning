@@ -45,7 +45,7 @@ class UserController extends Controller
 
 
   /**
-   *@Route("session")
+   *@Route("/session")
    *@Template
    */
   public function sessionAction(){
@@ -64,9 +64,11 @@ class UserController extends Controller
       return $this->render('IutPlanningBundle:Default:identification.html.twig');
     }
     else{
+    $liste=$em->getRepository('IutPlanningBundle:Activity')->findAll();
 	$activite=$em->getRepository('IutPlanningBundle:Participate')->findBy(array('nameUser'=>$nom));
 	return $this->render('IutPlanningBundle:Default:session.html.twig', array('nom' => $nom, 
-	       								          'activities' => $activite));
+	       								          'activities' => $activite,
+										  'liste' => $liste));
     }
   } 
 

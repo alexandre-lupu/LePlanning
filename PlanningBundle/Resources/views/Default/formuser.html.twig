@@ -1,9 +1,9 @@
 <h1>Formulaire d'ajout</h1>
 
 <form action="add" method="post">
-  <p>Nom : <input type="text" id="nom" name="nom"/></p>
-  <p>Mot de passe : <input type="password" id="mdp" name="mdp"/></p>
+  <p>Nom : <input type="text" id="nom" name="nom" required/></p>
+  <p>Mot de passe : <input type="password" id="mdp" name="mdp" required/></p>
   
   <input type="submit" value="Ok"/>
-  
+  <p><input type="button" value="Retour" onclick="self.location.href='identification'"/></p>
 </form>

@@ -33,5 +33,12 @@ class DefaultController extends Controller
   public function formactivityAction(){
     return $this->render('IutPlanningBundle:Default:formactivity.html.twig');
   }
-    
+
+/**
+*@Route("/identification")
+*@Template
+*/
+    public function identificationAction(){
+    	   return $this->render('IutPlanningBundle:Default:identification.html.twig');
+    }
 }

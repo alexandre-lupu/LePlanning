@@ -11,7 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class ActivityController extends Controller
 {
   /**
-   * @Route("/add")
+   * @Route("/session/addActivity")
    * @Template()
    */
   public function addactivityAction()

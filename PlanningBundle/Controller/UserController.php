@@ -45,7 +45,7 @@ class UserController extends Controller
 
 
   /**
-   *@Route("/identification/session")
+   *@Route("session")
    *@Template
    */
   public function sessionAction(){
@@ -56,11 +56,15 @@ class UserController extends Controller
     
     $em = $this->getDoctrine()->getManager();
 
-    $user=$em->getRepository()->find($nom,$mdp);
+    $user=$em->getRepository('IutPlanningBundle:User')->findOneBy(array('name' => $nom,
+							    'password' => $mdp)
+							     );
 
-    if($user){}
+    if($user===null){
+      return $this->render('IutPlanningBundle:Default:identification.html.twig');
+    }
     else{
-      return $this->render('IutPlanningBundle:Default:identification.html.twig',array('error'=>$nom));
+	return $this->render('IutPlanningBundle:Default:session.html.twig');
     }
   } 
 

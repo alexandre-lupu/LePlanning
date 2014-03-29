@@ -14,11 +14,11 @@
 
 
 
-<form method="get" action="">
+<form method="post" action="session/addParticipate">
   <fieldset>
     <legend>Ajouter une activit&eacute</legend>
     <p>
-      <select>
+      <select name="act" id="act">
 	{% for a in liste %}
 	<option value={{a.name}}>{{a.name}}</option>
 	{% endfor %}

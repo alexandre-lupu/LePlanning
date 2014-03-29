@@ -36,7 +36,7 @@ class DefaultController extends Controller
 
 /**
 *@Route("/identification")
-*@Template
+*@Template()
 */
     public function identificationAction(){
     	   return $this->render('IutPlanningBundle:Default:identification.html.twig');

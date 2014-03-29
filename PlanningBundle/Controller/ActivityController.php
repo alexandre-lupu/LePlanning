@@ -3,6 +3,8 @@
 namespace Iut\PlanningBundle\Controller;
 
 use Iut\PlanningBundle\Entity\Activity;
+use Iut\PlanningBundle\Entity\Participate;
+
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -28,5 +30,4 @@ class ActivityController extends Controller
 
     return $this->render('IutPlanningBundle:Activity:add.html.twig',array('name'=>$nomact));
   }
-
 }

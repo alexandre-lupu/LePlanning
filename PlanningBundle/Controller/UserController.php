@@ -7,6 +7,7 @@ use Iut\PlanningBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class UserController extends Controller
 {
@@ -64,12 +65,28 @@ class UserController extends Controller
       return $this->render('IutPlanningBundle:Default:identification.html.twig');
     }
     else{
+
+    #On demarre une session
+    $session=new Session();
+    $session->start();
+    $session->set('name', $nom);
+    
     $liste=$em->getRepository('IutPlanningBundle:Activity')->findAll();
-	$activite=$em->getRepository('IutPlanningBundle:Participate')->findBy(array('nameUser'=>$nom));
-	return $this->render('IutPlanningBundle:Default:session.html.twig', array('nom' => $nom, 
+	$activite=$em->getRepository('IutPlanningBundle:Participate')->findBy(array('nameUser'=>$session->get('name')));
+	return $this->render('IutPlanningBundle:Default:session.html.twig', array('nom' => $session->get('name'), 
 	       								          'activities' => $activite,
 										  'liste' => $liste));
     }
   } 
 
+/**
+*@Route("/deconnexion")
+*@Template()
+*/
+public function deconnexionAction(){
+       $session=new Session;
+       $nom=$session->get('name');
+       $session->invalidate();
+       return $this->render('IutPlanningBundle:User:deconnexion.html.twig', array('nom'=>$nom));
+}
 }
